@@ -1,42 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Age and NickName</title>
+    <title>Password Check</title>
+    <script>
+        var correct = 0, wrong = 0;
+        function processPhrase() {
+
+            secretValue = document.getElementById("secretphrase").value
+            phraseValue = document.getElementById("phrase").value
+            resultDiv = document.getElementById("result")
+
+            if (secretValue == phraseValue) {
+                alert("Access allowed");
+                correct = correct + 1;
+            } else {
+                alert("Access denied");
+                wrong = wrong + 1;
+            }
+
+            resultDiv.innerHTML = "Correct count: " + correct + '<br>' + " Wrong count: " + wrong;
+
+        }
+    </script>
 </head>
- 
+
 <body>
 
-<h2>Pass phrase by Bikash Adhikari</h2>
+    <h2>Pass phrase by Bikash Adhikari</h2>
 
-<form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <div class="container">
+        <h2>Getting input</h2>
+        <form>
+            <div class="form-group"><label for="secretphrase">Enter the secret phrase: </label>
+                <input type="password" class="form-control" id="secretphrase" value="Let me in" />
+            </div>
+            <br>
+            <div class="form-group">
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+                <label for="phrase">Enter a phrase: </label>
+                <input type="text" class="form-control form-check-label" id="phrase" autofocus />
+            </div>
+            <br>
+            <div class="buttonSubmit">
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
-</form>
+                <button class="btn btn-primary " type="button" onclick="processPhrase()"
+                    style="background-color: rgb(50, 238, 238);">Check the
+                    phrase</button>
+            </div>
+        </form>
+        <div id="result" class="form-group"></div>
+    </div>
 
-
-<p id="result">This text will be replaced </p>
-
-<script> 
-
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-</script>
 
 </body>
-</html> 
+
+</html>

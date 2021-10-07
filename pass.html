@@ -22,6 +22,28 @@
             resultDiv.innerHTML = "Correct count: " + correct + '<br>' + " Wrong count: " + wrong;
 
         }
+        var usingImage=1;
+
+function newImage(){
+
+Image=document.getElementById("Donkey")
+    switch(usingImage){
+        case 1 : Image.src = "Donkey.jpg"
+                 usingImage =usingImage +1;
+                 break;
+        case 2 : Image.src = "Hyena.jpg"
+                 usingImage =usingImage +1;
+                 break; 
+
+        case 3 : Image.src = "Kangaroo.jpg"
+                 usingImage =usingImage +1;
+                 break; 
+        default:
+            usingImage=1;
+            Image.src="Donkey.jpg";
+            usingImage =usingImage +1;
+        } 
+    }   
     </script>
 </head>
 
@@ -51,6 +73,9 @@
         </form>
         <div id="result" class="form-group"></div>
     </div>
+<div class= "container">
+    <img src="Donkey.jpg" id="Donkey" alt="Donkey" height="200" width="200" onclick="newImage()">
+</div>
 
 
 </body>

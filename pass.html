@@ -4,46 +4,52 @@
 <head>
     <title>Password Check</title>
     <script>
-        var correct = 0, wrong = 0;
+        var correct = 0, wrong = 0; counter = 0;
         function processPhrase() {
 
             secretValue = document.getElementById("secretphrase").value
             phraseValue = document.getElementById("phrase").value
             resultDiv = document.getElementById("result")
 
-            if (secretValue == phraseValue) {
-                alert("Access allowed");
-                correct = correct + 1;
-            } else {
-                alert("Access denied");
-                wrong = wrong + 1;
+            if (counter < 3) {
+                if (secretValue == phraseValue) {
+                    alert("Access allowed");
+                    correct = correct + 1;
+                } else {
+                    alert("Access denied");
+                    wrong = wrong + 1;
+                    counter++;
+                }
+            }
+            else {
+                alert("Account locked");
             }
 
             resultDiv.innerHTML = "Correct count: " + correct + '<br>' + " Wrong count: " + wrong;
 
         }
-        var usingImage=1;
+        var usingImage = 1;
 
-function newImage(){
+        function newImage() {
 
-Image=document.getElementById("Donkey")
-    switch(usingImage){
-        case 1 : Image.src = "Donkey.jpg"
-                 usingImage =usingImage +1;
-                 break;
-        case 2 : Image.src = "Hyena.jpg"
-                 usingImage =usingImage +1;
-                 break; 
+            Image = document.getElementById("Donkey")
+            switch (usingImage) {
+                case 1: Image.src = "Donkey.jpg"
+                    usingImage = usingImage + 1;
+                    break;
+                case 2: Image.src = "Hyena.jpg"
+                    usingImage = usingImage + 1;
+                    break;
 
-        case 3 : Image.src = "Kangaroo.jpg"
-                 usingImage =usingImage +1;
-                 break; 
-        default:
-            usingImage=1;
-            Image.src="Donkey.jpg";
-            usingImage =usingImage +1;
-        } 
-    }   
+                case 3: Image.src = "Kangaroo.jpg"
+                    usingImage = usingImage + 1;
+                    break;
+                default:
+                    usingImage = 1;
+                    Image.src = "Donkey.jpg";
+                    usingImage = usingImage + 1;
+            }
+        }
     </script>
 </head>
 
@@ -73,9 +79,9 @@ Image=document.getElementById("Donkey")
         </form>
         <div id="result" class="form-group"></div>
     </div>
-<div class= "container">
-    <img src="Donkey.jpg" id="Donkey" alt="Donkey" height="200" width="200" onclick="newImage()">
-</div>
+    <div class="container">
+        <img src="Donkey.jpg" id="Donkey" alt="Donkey" height="200" width="200" onclick="newImage()">
+    </div>
 
 
 </body>

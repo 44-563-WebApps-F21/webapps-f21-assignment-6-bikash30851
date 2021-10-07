@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
- 
 <body>
     <head>
     <title>Calculation</title>
@@ -22,7 +21,6 @@
     <button class="btn btn-primary" onclick="powers()">
         Compute
     </button>
-
 </div>
 <div class="container">
     <div class="form-group">
@@ -57,8 +55,7 @@
             <span id="res2"></span>
         </div>
     </div>
-</div>
-     
+</div>  
 <script>
     function powers() {
         let base = document.getElementById('base').value;
@@ -71,7 +68,6 @@
             }
             document.getElementById('result').innerHTML = " " + finalarray.join(", ") + " (Exponent was " + (exponent) + ")"
         }
-
         function processRadio(element) {
             let base = document.getElementById('base').value;
             let exponent = document.getElementById('exponent').value;
@@ -99,7 +95,6 @@
                         break;
                     }
             }
-
             document.getElementById('lab').innerHTML = base + " " + element.value + " " + exponent + " : ";
             let finalarray = [];
             for (i = 1; i <= exponent; i++) {
@@ -107,7 +102,6 @@
             }
             document.getElementById('res2').innerHTML = (result);
         }
-
         document.addEventListener('DOMContentLoaded', function() {
             let operationsArray = [{
                 id: 'chk_add',
@@ -131,7 +125,6 @@
                 resultView += "<div class=\"form-group\"><input type=\"radio\" onclick=\"processRadio(" + element.id + ")\" class=\"form-check-input\" id=\"" + element.id + "\" name=\"radio\" value=\"" + element.value + "\"><label for=\"" + element.id + "\">" + "&nbsp;" + element.symbol + "</label></div>"
             });
             document.getElementById('formView').innerHTML = resultView;
-
         });
 </script>
 </body>
